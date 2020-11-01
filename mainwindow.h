@@ -32,5 +32,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     DataTableModel *model;
+    AnimalSerializer *defaultSerializer;
 };
 #endif // MAINWINDOW_H

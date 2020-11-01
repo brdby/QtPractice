@@ -8,6 +8,7 @@ class AnimalSerializer
 public:
     virtual QString toString(const Animal &animal) = 0;
     virtual Animal fromString(const QString &csvString) = 0;
+    virtual ~AnimalSerializer() = default;
 };
 
 #endif // SERIALIZER_H

@@ -103,12 +103,12 @@ bool DataTableModel::setData(const QModelIndex &index, const QVariant &value, in
     return false;
 }
 
-bool DataTableModel::saveData(QFile *file, AnimalSerializer *serializer) const
+bool DataTableModel::saveData(QFile &file, AnimalSerializer *serializer) const
 {
-    if (!file->open(QIODevice::WriteOnly)) {
+    if (!file.open(QIODevice::WriteOnly)) {
         return false;
     }
-    QTextStream out(file);
+    QTextStream out(&file);
 
     for (auto &animal : dataList) {
         out << serializer->toString(animal);
@@ -116,13 +116,13 @@ bool DataTableModel::saveData(QFile *file, AnimalSerializer *serializer) const
     return true;
 }
 
-bool DataTableModel::loadData(QFile *file, AnimalSerializer *serializer)
+bool DataTableModel::loadData(QFile &file, AnimalSerializer *serializer)
 {
-    if (!file->open(QIODevice::ReadOnly))
+    if (!file.open(QIODevice::ReadOnly))
             return false;
 
     dataList.clear();
-    QTextStream in(file);
+    QTextStream in(&file);
 
     for (int i = 0; !in.atEnd(); ++i) {
         QString line = in.readLine();

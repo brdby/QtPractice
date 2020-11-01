@@ -38,8 +38,8 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
     // Save data
-    bool saveData(QFile *file, AnimalSerializer *serializer) const;
-    bool loadData(QFile *file, AnimalSerializer *serializer);
+    bool saveData(QFile &file, AnimalSerializer *serializer) const;
+    bool loadData(QFile &file, AnimalSerializer *serializer);
 
 private slots:
 
