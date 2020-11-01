@@ -2,8 +2,11 @@
 #define MAINWINDOW_H
 
 #include "datatablemodel.h"
+#include "animalcsvserializer.h"
 
 #include <QMainWindow>
+#include <QFileDialog>
+#include <QFile>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,6 +24,10 @@ private slots:
     void on_add_row_btn_clicked();
 
     void on_delete_row_btn_clicked();
+
+    void on_save_btn_clicked();
+
+    void on_load_btn_clicked();
 
 private:
     Ui::MainWindow *ui;

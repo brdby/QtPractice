@@ -2,8 +2,12 @@
 #define DATATABLEVIEW_H
 
 #include "animal.h"
+#include "animalserializer.h"
 
 #include <QAbstractTableModel>
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
 
 class DataTableModel : public QAbstractTableModel
 {
@@ -29,9 +33,13 @@ public:
     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
     bool removeColumns(int column, int count, const QModelIndex &parent = QModelIndex()) override;
 
-    //edit data
+    // Edit data
     Qt::ItemFlags flags(const QModelIndex &index) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
+
+    // Save data
+    bool saveData(QFile *file, AnimalSerializer *serializer) const;
+    bool loadData(QFile *file, AnimalSerializer *serializer);
 
 private slots:
 

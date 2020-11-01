@@ -103,6 +103,36 @@ bool DataTableModel::setData(const QModelIndex &index, const QVariant &value, in
     return false;
 }
 
+bool DataTableModel::saveData(QFile *file, AnimalSerializer *serializer) const
+{
+    if (!file->open(QIODevice::WriteOnly)) {
+        return false;
+    }
+    QTextStream out(file);
+
+    for (auto &animal : dataList) {
+        out << serializer->toString(animal);
+    }
+    return true;
+}
+
+bool DataTableModel::loadData(QFile *file, AnimalSerializer *serializer)
+{
+    if (!file->open(QIODevice::ReadOnly))
+            return false;
+
+    dataList.clear();
+    QTextStream in(file);
+
+    for (int i = 0; !in.atEnd(); ++i) {
+        QString line = in.readLine();
+        dataList.insert(i, serializer->fromString(line));
+    }
+    emit layoutAboutToBeChanged();
+    emit layoutChanged();
+    return true;
+}
+
 bool DataTableModel::removeRows(int row, int count, const QModelIndex &parent)
 {
     beginRemoveRows(parent, row, row + count - 1);

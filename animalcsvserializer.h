@@ -6,8 +6,8 @@
 class AnimalCsvSerializer : public AnimalSerializer
 {
 public:
-    virtual QString toString(const Animal &animal);
-    virtual Animal fromString(const QString &csvString);
+    QString toString(const Animal &animal) override;
+    Animal fromString(const QString &csvString) override;
 };
 
 #endif // ANIMALCSVSERIALIZER_H

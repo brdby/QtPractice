@@ -1,7 +1,7 @@
 #include "animalcsvserializer.h"
 
 QString AnimalCsvSerializer::toString(const Animal &animal) {
-    return QString("%1,%2").arg(animal.name).arg(animal.type);
+    return QString("%1,%2\n").arg(animal.name).arg(animal.type);
 }
 
 Animal AnimalCsvSerializer::fromString(const QString &csvString) {
