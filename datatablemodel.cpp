@@ -118,6 +118,7 @@ bool DataTableModel::saveData(QFile &file, AnimalSerializer *serializer) const
 
 bool DataTableModel::loadData(QFile &file, AnimalSerializer *serializer)
 {
+    emit layoutAboutToBeChanged();
     if (!file.open(QIODevice::ReadOnly))
             return false;
 
@@ -128,7 +129,6 @@ bool DataTableModel::loadData(QFile &file, AnimalSerializer *serializer)
         QString line = in.readLine();
         dataList.insert(i, serializer->fromString(line));
     }
-    emit layoutAboutToBeChanged();
     emit layoutChanged();
     return true;
 }
