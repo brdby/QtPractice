@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     model = new DataTableModel(this);
     defaultSerializer = new AnimalCsvSerializer();
     ui->tableView->setModel(model);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 MainWindow::~MainWindow()
