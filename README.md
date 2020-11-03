@@ -1,0 +1,2 @@
+# QtPractice
+Практики по Qt.
