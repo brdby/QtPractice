@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    scene = new TreeScene();
+    ui->graphicsView->setScene(scene);
 }
 
 MainWindow::~MainWindow()

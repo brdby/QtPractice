@@ -41,9 +41,6 @@ public:
     bool saveData(QFile &file, AnimalSerializer *serializer) const;
     bool loadData(QFile &file, AnimalSerializer *serializer);
 
-private slots:
-
-
 private:
     QList<Animal> dataList;
 };

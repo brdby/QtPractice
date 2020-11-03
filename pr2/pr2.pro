@@ -10,10 +10,16 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    parcer.cpp \
+    treescene.cpp \
+    xmlparcer.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    parcer.h \
+    treescene.h \
+    xmlparcer.h
 
 FORMS += \
     mainwindow.ui

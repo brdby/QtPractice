@@ -18,5 +18,5 @@ Animal AnimalCsvSerializer::fromString(const QString &csvString) {
 
 QString AnimalCsvSerializer::escapeCommas(const QString &string)
 {
-    return QString("\"%1\"").arg(string);
+    return (string.contains(',')|string.contains('"')) ? QString("\"%1\"").arg(string) : string;
 }
