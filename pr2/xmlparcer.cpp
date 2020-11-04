@@ -1,6 +1,6 @@
 #include "xmlparcer.h"
 
-XMLParcer::XMLParcer()
+QList<Node> XMLParcer::getNodes(QFile &file)
 {
 
 }

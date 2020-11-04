@@ -6,7 +6,7 @@
 class XMLParcer : public Parcer
 {
 public:
-    XMLParcer();
+    QList<Node> getNodes(QFile &file);
 };
 
 #endif // XMLPARCER_H

@@ -11,13 +11,16 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    parcer.cpp \
+    node.cpp \
+    treedrawer.cpp \
     treescene.cpp \
     xmlparcer.cpp
 
 HEADERS += \
     mainwindow.h \
+    node.h \
     parcer.h \
+    treedrawer.h \
     treescene.h \
     xmlparcer.h
 
