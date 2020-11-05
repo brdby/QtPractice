@@ -2,14 +2,15 @@
 
 void TreeDrawer::setNodeCoords(Node &rootNode)
 {
-    calculateInitialX(rootNode);
-    for (auto &childNode : rootNode.childList)
-        setNodeCoords(childNode);
+    calculateInitialX(rootNode, 0);
 }
 
-void TreeDrawer::calculateInitialX(Node &rootNode)
+void TreeDrawer::calculateInitialX(Node &node, int lvl)
 {
-    for (int i = 0; i < rootNode.childList.size(); i++) {
-        rootNode.childList[i].setX(i);
+    for (auto &childNode : node.childList) {
+        calculateInitialX(childNode, lvl+1);
     }
+    int nodesOnCurrentLvl = nodesOnlvl.value(lvl, 0);
+    node.setX(nodesOnCurrentLvl++);
+    nodesOnlvl.insert(lvl, nodesOnCurrentLvl);
 }

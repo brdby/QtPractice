@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    scene = new TreeScene(50, 50, 100);
+    scene = new TreeScene(100, 50, 150);
     parcer = new XMLParcer();
     ui->graphicsView->setScene(scene);
 }

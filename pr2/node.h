@@ -8,7 +8,6 @@ class Node
 private:
     int x = 0;
     int y = 0;
-    int mod = 0;
     QString name;
 public:
     Node(const QString &n = "") : name(n) {};
@@ -19,8 +18,6 @@ public:
     int getY() const;
     void setX(int value);
     void setY(int value);
-    int getMod() const;
-    void setMod(int value);
     QString getName() const;
 
     QVector<Node> childList;

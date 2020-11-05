@@ -20,16 +20,6 @@ void Node::setY(int value)
     y = value;
 }
 
-int Node::getMod() const
-{
-    return mod;
-}
-
-void Node::setMod(int value)
-{
-    mod = value;
-}
-
 QString Node::getName() const
 {
     return name;
