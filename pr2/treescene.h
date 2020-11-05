@@ -11,7 +11,7 @@ class TreeScene : public QGraphicsScene
 {
 public:
     TreeScene(int w, int h, int s) : nodeWidth(w), nodeHeight(h), scale(s), treeDrawer(new TreeDrawer()) {};
-    void drawTree(const Node &rootNode);
+    void drawTree(Node &rootNode);
 private:
     void drawAllNodes(const Node &node);
     void drawNode(const Node &node);

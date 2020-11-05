@@ -6,9 +6,9 @@
 class TreeDrawer
 {
 public:
-    void setNodeCoords(const Node &rootNode);
+    void setNodeCoords(Node &rootNode);
 private:
-    void calculateInitialX(const Node &rootNode);
+    void calculateInitialX(Node &rootNode);
 };
 
 #endif // TREEDRAWER_H

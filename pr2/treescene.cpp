@@ -1,6 +1,6 @@
 #include "treescene.h"
 
-void TreeScene::drawTree(const Node &rootNode)
+void TreeScene::drawTree(Node &rootNode)
 {
     treeDrawer->setNodeCoords(rootNode);
     drawAllNodes(rootNode);
@@ -9,7 +9,7 @@ void TreeScene::drawTree(const Node &rootNode)
 void TreeScene::drawAllNodes(const Node &node)
 {
     drawNode(node);
-    for (auto &childNode : node.getChildList()) {
+    for (auto &childNode : node.childList) {
         drawAllNodes(childNode);
         drawLine(node, childNode);
     }
@@ -17,7 +17,9 @@ void TreeScene::drawAllNodes(const Node &node)
 
 void TreeScene::drawNode(const Node &node)
 {
-    addRect(node.getX()*scale, node.getY()*scale, nodeWidth, nodeHeight, QPen(Qt::black), QBrush(Qt::black));
+    addRect(node.getX()*scale, node.getY()*scale, nodeWidth, nodeHeight, QPen(Qt::black));
+    QGraphicsTextItem *text = addText(node.getName());
+    text->setPos(node.getX()*scale, node.getY()*scale);
 }
 
 void TreeScene::drawLine(const Node &parentNode, const Node &childNode)

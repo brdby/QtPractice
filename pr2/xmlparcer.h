@@ -2,11 +2,14 @@
 #define XMLPARCER_H
 
 #include "parcer.h"
+#include <QXmlStreamReader>
 
 class XMLParcer : public Parcer
 {
 public:
-    QList<Node> getNodes(QFile &file);
+    Node* getNodes(QFile &file);
+private:
+    void parceNodes(Node *root, int depth, QXmlStreamReader &xml);
 };
 
 #endif // XMLPARCER_H

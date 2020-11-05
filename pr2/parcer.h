@@ -8,7 +8,7 @@
 class Parcer
 {
 public:
-    virtual QList<Node> getNodes(QFile &file) = 0;
+    virtual Node* getNodes(QFile &file) = 0;
 };
 
 #endif // PARCER_H

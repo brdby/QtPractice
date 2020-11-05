@@ -1,15 +1,15 @@
 #include "treedrawer.h"
 
-void TreeDrawer::setNodeCoords(const Node &rootNode)
+void TreeDrawer::setNodeCoords(Node &rootNode)
 {
     calculateInitialX(rootNode);
-    for (auto &childNode : rootNode.getChildList()) setNodeCoords(childNode);
+    for (auto &childNode : rootNode.childList)
+        setNodeCoords(childNode);
 }
 
-void TreeDrawer::calculateInitialX(const Node &rootNode)
+void TreeDrawer::calculateInitialX(Node &rootNode)
 {
-    auto childList = rootNode.getChildList();
-    for (int i = 0; i < childList.size(); i++) {
-        childList[i].setX(i);
+    for (int i = 0; i < rootNode.childList.size(); i++) {
+        rootNode.childList[i].setX(i);
     }
 }

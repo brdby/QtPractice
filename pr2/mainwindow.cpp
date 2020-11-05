@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "xmlparcer.h"
+#include <QFileDialog>
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -7,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     scene = new TreeScene(50, 50, 100);
+    parcer = new XMLParcer();
     ui->graphicsView->setScene(scene);
 }
 
@@ -18,10 +22,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    Node rootNode(0, 0);
-    rootNode.addChild(Node(0, 1));
-    rootNode.addChild(Node(1, 1));
-    rootNode.addChild(Node(2, 1));
-    rootNode.addChild(Node(3, 1));
-    scene->drawTree(rootNode);
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), "", tr("All Files (*)"));
+    if (!fileName.isEmpty()) {
+        QFile file(fileName);
+        auto nodes = parcer->getNodes(file);
+        scene->clear();
+        scene->drawTree(*nodes);
+    }
 }

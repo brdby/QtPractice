@@ -1,19 +1,19 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include <QList>
+#include <QVector>
 
 class Node
 {
-    int x;
-    int y;
-    int mod;
-    QList<Node> childList;
+private:
+    int x = 0;
+    int y = 0;
+    int mod = 0;
+    QString name;
 public:
-    Node(int x, int y) : x(x), y(y) {};
+    Node(const QString &n = "") : name(n) {};
 
     void addChild(const Node &child);
-    QList<Node> getChildList() const;
 
     int getX() const;
     int getY() const;
@@ -21,6 +21,9 @@ public:
     void setY(int value);
     int getMod() const;
     void setMod(int value);
+    QString getName() const;
+
+    QVector<Node> childList;
 };
 
 #endif // NODE_H

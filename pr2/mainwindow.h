@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "treescene.h"
+#include "parcer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,5 +23,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     TreeScene *scene;
+    Parcer *parcer;
 };
 #endif // MAINWINDOW_H
