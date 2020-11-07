@@ -41,6 +41,7 @@ void MainWindow::on_save_btn_clicked()
         QFile file(fileName);
         if (!model->saveData(file, defaultSerializer))
             QMessageBox::information(this, tr("Unable to save data"), file.errorString());
+        file.close();
     }
 }
 
@@ -51,5 +52,6 @@ void MainWindow::on_load_btn_clicked()
         QFile file(fileName);
         if (!model->loadData(file, defaultSerializer))
             QMessageBox::information(this, tr("Unable to load data"), file.errorString());
+        file.close();
     }
 }
