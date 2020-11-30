@@ -6,6 +6,11 @@ void TreeScene::drawTree(Node &rootNode)
     drawAllNodes(rootNode);
 }
 
+TreeScene::~TreeScene()
+{
+    delete treeDrawer;
+}
+
 void TreeScene::drawAllNodes(const Node &node)
 {
     drawNode(node);
