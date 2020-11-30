@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete scene;
+    delete parcer;
 }
 
 
@@ -26,6 +28,7 @@ void MainWindow::on_pushButton_clicked()
     if (!fileName.isEmpty()) {
         QFile file(fileName);
         auto nodes = parcer->getNodes(file);
+        file.close();
         scene->clear();
         scene->drawTree(*nodes);
     }

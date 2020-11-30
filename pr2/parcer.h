@@ -9,6 +9,7 @@ class Parcer
 {
 public:
     virtual Node* getNodes(QFile &file) = 0;
+    virtual ~Parcer() = default;
 };
 
 #endif // PARCER_H
